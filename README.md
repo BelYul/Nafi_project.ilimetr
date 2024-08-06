@@ -6,6 +6,8 @@
 
 Приложение позволяет организаторам мероприятий создавать и демонстрировать интерактивные презентации, которые можно отображать не только на проекторе, но и на мобильных устройствах аудитории, с возможностью проведения опросов/квизов, просмотра вопросов от участников, сбора обратной связи, сбора и демонстрации аналитических данных во время выступления с использованием ИИ, установки тайминга показа на конкретный слайд и др.
 
-![gif]([https://github.com/BelYul/Nafi_project.ilimetr/blob/master/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD-%D0%B7%D0%B0%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE%D0%BA.JPG](https://github.com/BelYul/Nafi_project.ilimetr/blob/master/GIF%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BE%D0%B1%D0%B7%D0%BE%D1%80%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20mvp.mp4)
+Подробнее ознакомится с презентацией данного проекта, его визуальным представлением, командой разработки можно [здесь](https://docs.google.com/presentation/d/1gVZL0Idss5JzoLov1zlWnz1YGPVEgqBAz5cZRUKMY0E/edit?usp=sharing)
+
+Страница на behance [здесь](https://www.behance.net/gallery/203559397/ilimetr-proekt-dlja-analiticheskogo-centra-nafi)
 
 
