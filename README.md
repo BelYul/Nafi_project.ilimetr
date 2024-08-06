@@ -12,7 +12,11 @@
 ___________________
 ## Для приложения было проведено ручное тестирование, тестирование API, UI/UX-тестирование, с тестовой документацией можно ознакомится по ссылкам:
 [тест-план](https://docs.google.com/document/d/1lWMZjM_QXU4Bgx8PBO9DH9Nfl9YgYwP8-YsNZk1qaBE/edit?usp=sharing)
+
 [Чек-листы](https://docs.google.com/spreadsheets/d/1hWsVCQ-Tvz9ZCikI3nNjIQGQkQUGYCoq80BugmwoyYY/edit?gid=929701560#gid=929701560)
+
 [Тест-кейсы](https://docs.google.com/spreadsheets/d/1AMrdFtUZYuG00j7XBfct-FyqR2E4gwdMQ8YI4luxah4/edit?usp=sharing)
+
 [Баг-репорты](https://docs.google.com/spreadsheets/d/1gi6l9IKLFhg_IgTKK0eY7r8Wvw65GPq5HyQFzey1tV0/edit?gid=876984196#gid=876984196)
+
 [Коллекция Postman](https://github.com/BelYul/Nafi_project.ilimetr/blob/master/%D0%9D%D0%90%D0%A4%D0%98%20%D0%98%D0%BB%D0%B8%D0%BC%D0%B5%D1%82%D1%80.postman_collection.json)
