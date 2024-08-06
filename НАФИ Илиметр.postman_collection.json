@@ -1,0 +1,2591 @@
+{
+	"info": {
+		"_postman_id": "129f7f55-c1da-41e3-a1bd-bdf28d666cde",
+		"name": "НАФИ Илиметр",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33862950"
+	},
+	"item": [
+		{
+			"name": "Api",
+			"item": [
+				{
+					"name": "Positive. Список всех событий",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Создание события",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Позитивное тестирование",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2024-07-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/test.pdf"
+								},
+								{
+									"key": "current_slide",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pdf_uploaded",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание события с некорректным \"title\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "à åëåêòðîííà\"",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2024-07-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/test.pdf"
+								},
+								{
+									"key": "current_slide",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание события с некорректным \"start_date\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Негативный кейс",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "0001-07-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/test.pdf"
+								},
+								{
+									"key": "current_slide",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание события с некорректным \"current_slide\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Негативный кейс",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "0001-07-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/test.pdf"
+								},
+								{
+									"key": "current_slide",
+									"value": "    ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание события с максимально недопустимым  размером pdf файла > 50 мб",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Негативный кейс",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "0001-07-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/test 57 mb.pdf"
+								},
+								{
+									"key": "current_slide",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание события с загрузкой  недопустимого  формата файла, отличным от pdf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Негативный кейс",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "0001-07-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/Doc 1.docx"
+								},
+								{
+									"key": "current_slide",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Слайды события по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/18/slides/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"18",
+								"slides",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Слайды события по ID несуществующему",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/148/slides/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"148",
+								"slides",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. События по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. События по ID несуществующему",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/148/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"148",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Изменить все данные по ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Изменения",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2024-08-09T11:36:09+03:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "current_slide",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Изменить все данные некорректно по ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "!@#$%^",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "3333-08-09T11:36:09+01:00",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "current_slide",
+									"value": "-2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Изменить все данные по ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"start_date\": \"2025-06-19T10:14:02.067Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Изменить некорректно \"title\" по ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"!@#$êòðîííà\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Изменить некорректно \"start_date\" по ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"start_date\": \"1234-01-01T10:14:02.067Z\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Изменить некорректно \"current_slide\" по ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"current_slide\": asd!@#\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Изменить некорректно  \"pdf\" другой формат по ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Учеба/Nafi/Doc 1.docx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/events/21/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"21",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Удалить существующее событие по ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/19/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"19",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Удалить несуществующее событие по ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/events/19/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"19",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Создание вопроса",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"Как поднять мотивацию?\",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание вопроса некорректный \"question_text\" пробелы",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"    \",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание вопроса некорректный \"question_text\" пустое поле",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"\",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание вопроса некорректный \"question_text\" один символ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"А\",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Создание вопроса \"question_text\" 200 символов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"Данный параметр показывает количество слов, состоящих из букв различных алфавитов. Данный параметр показывает количество слов, состоящих из букв различных алфавитов.Данный параметр показывает количест\",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание вопроса \"question_text\" 201 символов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"Данный параметр показывает количество слов, состоящих из букв различных алфавитов. Данный параметр показывает количество слов, состоящих из букв различных алфавитов.Данный параметр показывает количеств\",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Создание вопроса \"question_text\" искаженный текст",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"owner\": \"Евгений\",\r\n  \"question_text\": \"(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧⸱ല┳☴᜵\",\r\n  \"event\": 1,\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Запрос вопроса по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/questions/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Запрос вопроса по несуществующему ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/questions/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "303"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Запрос слайдов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/slides/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"slides",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Создание слайдов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "ͨ॥⽬ŬᕯܠॷὯࡲ⩬դ",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "0001-06-20T11:53:37.443Z",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "pdf_uploaded",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "current_slide",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "order",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "event",
+									"value": "18",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/slides/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"slides",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Запрос слайдов по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/slides/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"slides",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "161"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Запрос слайдов по несуществующему ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/slides/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"slides",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Запрос слайдов по ID Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/slides/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"slides",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "161"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative. Запрос слайдов по несуществующему ID Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/slides/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"slides",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Positive Создание токена. Валидные данные",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const refresh = pm.response.json().refresh\r",
+									"pm.collectionVariables.set(\"refresh\", refresh)\r",
+									"\r",
+									"const access = pm.response.json().access\r",
+									"pm.collectionVariables.set(\"access\", access)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/create/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание токена. Невалидный пароль",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"adminn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/create/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание токена. Невалидный email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"addmin@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/create/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание токена. Невалидные email и пароль",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"addmin@admin.com\",\r\n    \"password\": \"aadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/create/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive Обновление токена. Действующий токен",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const refresh = pm.response.json().refresh\r",
+									"pm.collectionVariables.set(\"refresh\", refresh)\r",
+									"\r",
+									"const access = pm.response.json().access\r",
+									"pm.collectionVariables.set(\"access\", access)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxODAxNTc0OCwiaWF0IjoxNzE3OTI5MzQ4LCJqdGkiOiJkZDk4OTZhOWRkZDE0Nzg0OGI4NTc4M2YyNWRiMzhhZSIsInVzZXJfaWQiOjF9.h7oW-y-HIArp0coVCH3JSZeu4Y-xfr0bUuCZJ-BzTAw\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/refresh/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление токена. Старый токен",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxODAxNDczOSwiaWF0IjoxNzE3OTI4MzM5LCJqdGkiOiIwMDQ4ODcwMjhhZDk0OWVkYWE4ZjAzN2QyNzY1M2YzZiIsInVzZXJfaWQiOjF9.\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/refresh/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление токена. Пустое поле",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/refresh/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление токена. Пробелы",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"                 \"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/refresh/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive Проверка токена. Действующий",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxODAyOTE1MiwiaWF0IjoxNzE3OTQyNzUyLCJqdGkiOiJkYzY3ZmI0NDRmODg0Njk1YjMzNmI4OWVjN2ZlN2UzNiIsInVzZXJfaWQiOjF9.hYZmwrFcvzqLGC9MURNPYLWtJFFPNGBq33cyWQzfdTw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/verify/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка токена. Просроченный токен",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxODAxNDczOSwiaWF0IjoxNzE3OTI4MzM5LCJqdGkiOiIwMDQ4ODcwMjhhZDk0OWVkYWE4ZjAzN2QyNzY1M2YzZiIsInVzZXJfaWQiOjF9.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/verify/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка токена. Пустое поле",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/verify/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка токена. Пробелы",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"                \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/jwt/verify/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"jwt",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список пользователей",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive Создание пользователя. Все поля заполнены",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastname\": \"Петров\",\r\n  \"name\": \"Иван\",\r\n  \"middlename\": \"Сергеевич\",\r\n  \"business_area\": \"LP\",\r\n  \"phone\": \"+79921147458\",\r\n  \"organization\": \"Пятёрочка\",\r\n  \"entity\": \"LP\",\r\n  \"email\": \"qweadf1233@mail.ru\",\r\n  \"password\": \"df2_sha25\",\r\n  \"re_password\": \"df2_sha25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Пустое поле \"Пароль\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadcf@mail.ru\",\r\n  \"password\": \"\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Пустое поле \"Подтвердите пароль\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qwaeaadf@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. \"Пароль\", \"Подтвердить пароль\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qwaevadf@mail.ru\",\r\n  \"password\": \"\",\r\n  \"re_password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. пустое поле \"Электронная почта\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. пробелы в полях \"Пароль\", \"Подтвердить пароль\". (length: 8)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qwaevadf@mail.ru\",\r\n  \"password\": \"        \",\r\n  \"re_password\": \"        \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. пробелы в поле \"Электронная почта\" (length: 8)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"        \",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. пробелы в полях \"Пароль\", \"Подтвердить пароль\",  \"Электронная почта\" (length: 8)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"        \",\r\n  \"email\": \"        \",\r\n  \"password\": \"        \",\r\n  \"re_password\": \"        \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. невалидные данные в поле \"Подтвердить пароль\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"Aqweadf@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"AASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. @mail.ru в поле \"Электронная почта\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. (эл. почта)mail.ru в поле \"Электронная почта\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"vcxwgbvmail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. (эл. почта)mail в поле \"Электронная почта\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"xcvxcv@mail\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. !@#$%^&*@mail.ru в поле \"Электронная почта\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"!@#$%^&*@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. пробелы        @mail.ru\" в поле \"Электронная почта\" (length: 8)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"        @mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. семь символов в поле \"Пароль\", \"Подтвердить пароль\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"ascascc@mail.ru\",\r\n  \"password\": \"ASFxzv!\",\r\n  \"re_password\": \"ASFxzv!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. 279 символов в поле \"Пароль\", \"Подтвердить пароль\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"ascaskbcc@mail.ru\",\r\n  \"password\": \"ASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASF\",\r\n  \"re_password\": \"ASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. 198 символов в поле \"Электронная почта\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Дмитрий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"ascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccascaskbccaaskbccaaskbc@mail.ru\",\r\n  \"password\": \"ASFxzv!A\",\r\n  \"re_password\": \"ASFxzv!A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Пустая строка \"name\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaaf@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Один символ в поле \"name\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Д\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaaaf@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Пробелы в поле \"name\"(length: 8)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"        \",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaaaf1@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Спецсимволы !~№;%:?* в поле \"name\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"!~№;%:?*\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaaaf1@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. 279 символов в поле \"name\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитрийДмитри\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaaaf1@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Китайские символы 德米特里德米特里 в поле \"name\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"德米特里德米特里\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaa1af1@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя. Английские символы Dmitriy в поле \"name\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Dmitriy\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadaaaxf1@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Заменить пароль пользователя",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Брэд Питт\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadf123@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"NewASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Негативный. Заменить пароль пользователя на такой же",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Брэд Питт\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"qweadf123@mail.ru\",\r\n  \"password\": \"ASFxzv153!\",\r\n  \"re_password\": \"ASFxzv153!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive Запрос пользователя по id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Запрос пользователя по несуществующему id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Запрос пользователя по пустому полю id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Запрос пользователя пробелы в поле id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "  "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Заменить все данные пользователя",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Василий\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"vas@example.com\",\r\n  \"password\": \"Passwo1!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Негативный кейс. Некорректные данные в поле \"name\", \"email\", \"password\"",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"!~№;%:?*\",\r\n  \"business_area\": \"string\",\r\n  \"email\": \"OnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwothreeOnetwoth@Onetwothree.com\",\r\n  \"password\": \"ASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASFASFxzv!ASFxzv!ASFxzv!ASFxzv!ASF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive. Удалить существующего пользователя",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"current_password\": \"admin\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/:id/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "уточнить Positive Активация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uid\": \"3\",\r\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4ODg0NTU2LCJpYXQiOjE3MTg4ODA5NTYsImp0aSI6ImQ2N2RhOWNkZjhjOTRlOWFiZTUxMzI5YTNlMjViYjljIiwidXNlcl9pZCI6MX0.XaCn2ajN4trsVkqQoH4NobBgrn-ajFFxWnMGRt5ehug\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/activation/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								"activation",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive resend_activation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"qweadf123@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/resend_activation/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								"resend_activation",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positive resend_activation Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"qweadf123@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/users/reset_email/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								"reset_email",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://95.163.230.46"
+		},
+		{
+			"key": "refresh",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "access",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
