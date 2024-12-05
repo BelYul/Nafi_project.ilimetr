@@ -12,7 +12,7 @@
 
 Страница на behance [здесь](https://www.behance.net/gallery/203559397/ilimetr-proekt-dlja-analiticheskogo-centra-nafi)
 ___________________
-## Для приложения было проведено ручное тестирование, тестирование бекенда REST API c помощью Postman, UI/UX-тестирование, с составленной тестовой документацией можно ознакомится по ссылкам:
+## **Для приложения было проведено ручное тестирование, тестирование бекенда REST API c помощью Postman, UI/UX-тестирование, с составленной тестовой документацией можно ознакомится по ссылкам:**
 [Тест-план](https://docs.google.com/document/d/1lWMZjM_QXU4Bgx8PBO9DH9Nfl9YgYwP8-YsNZk1qaBE/edit?usp=sharing)
 
 [Чек-листы](https://docs.google.com/spreadsheets/d/1hWsVCQ-Tvz9ZCikI3nNjIQGQkQUGYCoq80BugmwoyYY/edit?gid=929701560#gid=929701560)
